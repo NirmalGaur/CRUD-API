@@ -1,0 +1,15 @@
+Express is server side (back-end) framework. 
+We can renders client side views with express using html or by using template engines like handlebars or pug.
+
+Basic Server Syntax includes Initialising Express, Creating endpoints/ route handlers, Listen on the port.
+
+Basic Route Handling:
+>> Within route  handling, we can fetch data from the database using MySQL or MongoDB or Postgress, we can return json data, load pages.
+>> We use req and res objects. The req represents the http request property for things like URL parameters, query strings, etc. We can also create Middleware where we can change of add things in the req object.
+The res object represents http response, we can use this object to send back json data, or to render a template, or to redirect.
+>> Express also includes the body parser to parse any incoming data.
+>> Express has a router so we can store routes in separate files and export, so that we don't have to put all our routes in one file.
+
+EXPRESS MIDDLEWARE:
+Middleware functions are functions that have access to the request and response object. Express has built in middleware but middleware also comes from 3rd party packages as well as custom middleware.
+Middleware is capable of executing any code, making changes to the request/repsonse object, Ending response cycle. Middleware is kind of a stack of functions that execute whenever a request is made to the server and we can do different things within those functions.
