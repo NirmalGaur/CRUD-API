@@ -11,5 +11,12 @@ The res object represents http response, we can use this object to send back jso
 >> Express has a router so we can store routes in separate files and export, so that we don't have to put all our routes in one file.
 
 EXPRESS MIDDLEWARE:
+Middleware is something that is going to run between the time that the server gets the request and the time that the server sends out the response to the client.
+Middleware runs in order we define it in our code. If there is no call next() in the current middleware, it won't run any other middlewares.
 Middleware functions are functions that have access to the request and response object. Express has built in middleware but middleware also comes from 3rd party packages as well as custom middleware.
 Middleware is capable of executing any code, making changes to the request/repsonse object, Ending response cycle. Middleware is kind of a stack of functions that execute whenever a request is made to the server and we can do different things within those functions.
+
+MVC (Model View Controller):
+VIEW is what the user sees when they interact with the application. It usually consists of HTML/CSS alongwith dynamic values sent from the controller using template engine like handlebars.
+MODEL is responsible for getting and manipulating the data. It interacts with some database and then communicates with the controller which then updates the view.
+CONTROLLER is what that connects with Model as well as View. It takes in the user input, processes request, Asks the model to get some data from the database, takes that data and load a view and pass that data into it, then from there the template engine takes over. The controller can also load a view without passing any data (plain webpage with html/css).

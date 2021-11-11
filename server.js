@@ -10,8 +10,21 @@ const members = require("./Members");
 
 const app = express();
 
-//Initialising Middleware:
-// SHOW: app.use(logger);
+// Initialising Middleware: (Global Middleware)
+// SHOW: app.use(logger); // app.use accepts a function that takes req, res, next. Once this middleware runs, it calls next to run the next middleware below.
+
+// Middleware specific to a single action: We can define this type of middleware by just putting it inside the app.get() function. app.get() accepts two things: one is the path, and then the list of different middlewares:
+app.get("/users", auth, (req, res) => {
+  console.log("Users Page");
+  res.send("Users Page");
+});
+function auth(req, res, next) {
+  if (req.query.admin === "true") {
+    next(); // Go to the next middleware (above)
+    return; // Note that without this 'return' there would be an error because once we call next() the middleware after it executes and then control returns back to the line after next(), due to which res.send is called twice here
+  }
+  res.send("No auth");
+}
 
 // Handlebars Middleware
 app.engine("handlebars", exphbs());
